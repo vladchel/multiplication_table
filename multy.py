@@ -14,7 +14,7 @@ def stat_info(total_errors, errors, long_time_results):
    for a, b in sorted(errors, key=itemgetter(0,1)):
       if errors_text:
          errors_text += ', '
-      errors_text += f'{a}x{b}'
+      errors_text += f'{a}x{b}={a*b}'
    if errors_text:
       errors_text = f' ({errors_text})'
    print(f'Число примеров с ошибками: ' + str(total_errors) + errors_text)
@@ -22,7 +22,7 @@ def stat_info(total_errors, errors, long_time_results):
       return
    print(f'Ответы с задержкой более {LONG_TIME} секунд:')
    for a, b, seconds in sorted(long_time_results, key=itemgetter(0,1,2)):
-      print(f'{a}x{b}: {seconds} сек')
+      print(f'{a}x{b}={a*b}: {seconds} сек')
 
 
 if len(sys.argv) > 1:
